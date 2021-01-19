@@ -1,0 +1,93 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.clock24,
+.clock12 {
+    background: #333333;
+    width: 300px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+.clock-time24,
+.clock-time12,
+.clock-ampm {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 30px;
+    color: #51f058;
+}
+.clock-time24,
+.clock-time12 {
+    font-size: 50px;
+}
+.analog {
+    width: 300px;
+    height: 300px;
+    background-color: #333333;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+}
+.analog .num {
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 30px;
+}
+.analog .num1 {--rotation: 30deg}
+.analog .num2 {--rotation: 60deg}
+.analog .num3 {--rotation: 90deg}
+.analog .num4 {--rotation: 120deg}
+.analog .num5 {--rotation: 150deg}
+.analog .num6 {--rotation: 180deg}
+.analog .num7 {--rotation: 210deg}
+.analog .num8 {--rotation: 240deg}
+.analog .num9 {--rotation: 270deg}
+.analog .num10 {--rotation: 300deg}
+.analog .num11 {--rotation: 330deg}
+
+.analog .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 10px;
+    background-color: black;
+    border: 1px solid white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+.analog::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    z-index:11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+.analog .hand.second {
+    width: 3px;
+    height: 45%;
+    background-color: red;
+}
+.analog .hand.minute {
+    width: 7px;
+    height: 40%;
+    background-color: rgb(0, 0, 0);
+}
+.analog .hand.hour {
+    width: 10px;
+    height: 35%;
+    background-color: rgb(0, 0, 0);
+}
